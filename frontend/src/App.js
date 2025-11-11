@@ -91,6 +91,34 @@ function App() {
         padding: "2rem",
       }}
     >
+
+      {/* Navigation Menu */}
+      <nav
+        style={{
+          alignSelf: "flex-start",
+          marginBottom: "20px",
+          backgroundColor: "#0078D4",
+          padding: "20px",
+          borderRadius: "8px",
+        }}
+      >
+        <style>
+        {`
+          nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+          }
+          nav a:hover {
+            text-decoration: underline;
+          }
+        `}
+      </style>
+        <a href="/Home" style={{ color: "white", margin: "0 10px" }}> Home </a>
+        <a href="/Resources.html" style={{ color: "white", margin: "0 10px" }}>Resources </a>
+      </nav>
+
       <div
         style={{
           width: "420px",
