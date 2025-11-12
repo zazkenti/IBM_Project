@@ -85,10 +85,9 @@ function App() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: "100vh",
+        height: "100dvh",
         backgroundColor: "#f5f7fa",
         fontFamily: "Arial, sans-serif",
-        padding: "2rem",
       }}
     >
 
@@ -96,6 +95,8 @@ function App() {
       <nav
         style={{
           alignSelf: "flex-start",
+          marginTop: "20px",
+          marginLeft: "20px",
           marginBottom: "20px",
           backgroundColor: "#0078D4",
           padding: "20px",
@@ -114,20 +115,21 @@ function App() {
             text-decoration: underline;
           }
         `}
-      </style>
+        </style>
         <a href="/Home" style={{ color: "white", margin: "0 10px" }}> Home </a>
         <a href="/Resources.html" style={{ color: "white", margin: "0 10px" }}>Resources </a>
       </nav>
 
       <div
         style={{
-          width: "420px",
+          width: "90dvw",
           background: "white",
           borderRadius: "12px",
           boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
           display: "flex",
           flexDirection: "column",
-          height: "600px",
+          height: "80dvh",
+          marginBottom: "20px",
         }}
       >
         <div
@@ -197,6 +199,7 @@ function App() {
         <div
           style={{
             display: "flex",
+            flexWrap: "wrap",
             borderTop: "1px solid #ddd",
             padding: "0.8rem",
             backgroundColor: "#fafafa",
@@ -215,6 +218,7 @@ function App() {
               borderRadius: "8px",
               border: "1px solid #ccc",
               outline: "none",
+              minWidth: "50px",
             }}
           />
           <button
@@ -227,6 +231,7 @@ function App() {
               border: "none",
               borderRadius: "8px",
               cursor: "pointer",
+              maxWidth: "100px",
             }}
           >
             Send
