@@ -193,7 +193,7 @@ Would you like to share some information about yourself and get started?`
             Meet <strong> Health Bot</strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
           </p>
           <p style={{ marginTop: "0px" }}>
-            <strong>Enter details such as your age, weight, and medical history to get started.</strong>
+            <strong>Enter details such as your age, weight, height, gender, and medical history to get started.</strong>
           </p>
         </div>
       </div>
