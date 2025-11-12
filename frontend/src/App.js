@@ -91,19 +91,30 @@ function App() {
       }}
     >
 
-      {/* Navigation Menu */}
-      <nav
-        style={{
-          alignSelf: "flex-start",
-          marginTop: "20px",
-          marginLeft: "20px",
-          marginBottom: "20px",
-          backgroundColor: "#0078D4",
-          padding: "20px",
-          borderRadius: "8px",
-        }}
-      >
-        <style>
+    {/* Navigation Menu */}
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start", 
+        marginBottom: "0px",
+        padding: "0 20px",
+        width: "100%",
+      }}
+    >
+
+    <nav
+      style={{
+        alignSelf: "flex-start",
+        marginTop: "20px",   
+        marginLeft: "20px",   
+        marginBottom: "20px",
+        backgroundColor: "#0078D4",
+        padding: "20px",
+        borderRadius: "8px",
+      }}
+    >
+      <style>
         {`
           nav a {
             color: white;
@@ -115,10 +126,63 @@ function App() {
             text-decoration: underline;
           }
         `}
-        </style>
-        <a href="/Home" style={{ color: "white", margin: "0 10px" }}> Home </a>
-        <a href="/Resources.html" style={{ color: "white", margin: "0 10px" }}>Resources </a>
-      </nav>
+      </style>
+      <a href="/Home" style={{ color: "white", margin: "0 10px" }}> Home</a>
+      <a href="/Resources.html" style={{ color: "white", margin: "0 10px" }}>Resources </a>
+    </nav>
+
+    <div
+      style={{
+        flexGrow: 1,
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          fontSize: "1.8rem",
+          fontWeight: "bold",
+          color: "#0078D4",
+          marginLeft: "calc(0% - 200px)",
+        }}
+      >
+        Welcome to Health Bot! 🩺
+      </div>
+    </div>
+  </div>
+ 
+  <div
+    style={{
+      width: "90%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginBottom: "20px",
+    }}
+  >
+    <div
+      style={{
+        width: "80%",
+        textAlign: "center",
+        fontSize: "1.1rem",
+        lineHeight: "1.5",
+        color: "#0078D4", 
+        fontWeight: "500",
+
+        border: "2px solid #0078D4",     
+        borderRadius: "12px",            
+        padding: "1px 15px",            
+        backgroundColor: "#fefefe", 
+      }}
+    >
+      <p style={{ marginBottom: "10px" }} >
+        Meet <strong> Health Bot</strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
+      </p>
+      <p style={{ marginTop: "0px" }} >
+        <strong>Enter details such as your age, weight, and medical history to get started.</strong>
+      </p>
+    </div>
+  </div>
 
       <div
         style={{
@@ -144,7 +208,7 @@ function App() {
             fontWeight: "bold",
           }}
         >
-          🩺 Healthcare Assistant
+          Healthcare Assistant
         </div>
 
         <div
