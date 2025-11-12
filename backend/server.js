@@ -9,7 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 🧩 Step 1: Get IBM IAM access token
+// 🧠 Keep chat history so the bot remembers context
+let chatHistory = [];
+
+// Get IBM IAM access token
 async function getAccessToken() {
   try {
     const response = await axios.post(
@@ -28,7 +31,7 @@ async function getAccessToken() {
   }
 }
 
-// 🧠 Step 2: Message route for frontend
+// Message route for frontend
 app.post("/api/message", async (req, res) => {
   try {
     const { message } = req.body;
@@ -36,18 +39,14 @@ app.post("/api/message", async (req, res) => {
 
     const token = await getAccessToken();
 
-    // ✅ Correct Watsonx endpoint
+    // Add user message to chat history
+    chatHistory.push({ role: "user", content: message });
+
+    // Watsonx endpoint
     const endpoint = `https://us-south.ml.cloud.ibm.com/ml/v4/deployments/${process.env.IBM_DEPLOYMENT_ID}/ai_service?version=2021-05-01`;
 
-    // ✅ Correct payload (matches the API reference you shared)
-    const payload = {
-      messages: [
-        {
-          role: "user",
-          content: message,
-        },
-      ],
-    };
+    // Send entire conversation so it remembers context
+    const payload = { messages: chatHistory };
 
     const watsonResponse = await axios.post(endpoint, payload, {
       headers: {
@@ -58,12 +57,15 @@ app.post("/api/message", async (req, res) => {
 
     console.log("✅ Watsonx response received");
 
-    // ✅ Extract chatbot reply
+    // Extract chatbot reply
     const botReply =
       watsonResponse.data?.choices?.[0]?.message?.content ||
       watsonResponse.data?.output?.[0]?.content ||
       watsonResponse.data?.results?.[0]?.generated_text ||
       "No reply";
+
+    // Add bot message to chat history so context persists
+    chatHistory.push({ role: "assistant", content: botReply });
 
     res.json({
       output: [{ content: botReply }],
@@ -74,6 +76,11 @@ app.post("/api/message", async (req, res) => {
   }
 });
 
-// 🚀 Step 3: Start server
+// Optional: endpoint to clear chat memory
+app.post("/api/reset", (req, res) => {
+  chatHistory = [];
+  res.json({ message: "Chat history cleared." });
+});
+
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
