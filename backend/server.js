@@ -10,7 +10,22 @@ app.use(cors());
 app.use(express.json());
 
 // 🧠 Keep chat history so the bot remembers context
-let chatHistory = [];
+let chatHistory = [
+  {
+    role: "assistant",
+    content: `I am an AI chatbot designed to help reduce the risks of diabetes and offer suggestions to improve your lifestyle. I can:
+
+• Predict the chances of a user developing diabetes based on their lifestyle and health information  
+• Provide personalized recommendations to help users lower their risk of developing diabetes  
+• Offer tips and advice on healthy eating, exercise, and stress management  
+• Help users understand the importance of early detection and prevention of diabetes  
+• Provide information on the latest research and developments in diabetes prevention and management  
+
+To get started, I would need to know some information about you, such as your age, weight, height, family medical history, and current lifestyle habits. This will help me provide you with more accurate and personalized advice.
+
+Would you like to share some information about yourself and get started?`,
+  },
+];
 
 // Get IBM IAM access token
 async function getAccessToken() {

@@ -6,6 +6,26 @@ function App() {
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef(null);
 
+  // ✅ Intro message on page load
+  useEffect(() => {
+    setChat([
+      {
+        sender: "Bot",
+        text: `I am an AI chatbot designed to help reduce the risks of diabetes and offer suggestions to improve your lifestyle. I can:
+
+• Predict the chances of a user developing diabetes based on their lifestyle and health information
+• Provide personalized recommendations to help users lower their risk of developing diabetes
+• Offer tips and advice on healthy eating, exercise, and stress management
+• Help users understand the importance of early detection and prevention of diabetes
+• Provide information on the latest research and developments in diabetes prevention and management
+
+To get started, I would need to know some information about you, such as your age, weight, height, family medical history, and current lifestyle habits. This will help me provide you with more accurate and personalized advice.
+
+Would you like to share some information about yourself and get started?`
+      },
+    ]);
+  }, []);
+
   const sendMessage = async () => {
     if (!message.trim()) return;
 
@@ -37,17 +57,14 @@ function App() {
     }
   };
 
-  // ✅ Press Enter to send
   const handleKeyPress = (e) => {
     if (e.key === "Enter") sendMessage();
   };
 
-  // ✅ Scrolls chat to bottom
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
 
-  // ✅ Format text (detects bullet points, numbers, and paragraphs)
   const formatText = (text) => {
     const lines = text.split("\n").filter((line) => line.trim() !== "");
     const hasBullets = lines.some((l) =>
@@ -90,99 +107,96 @@ function App() {
         fontFamily: "Arial, sans-serif",
       }}
     >
-
-    {/* Navigation Menu */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-start", 
-        marginBottom: "0px",
-        padding: "0 20px",
-        width: "100%",
-      }}
-    >
-
-    <nav
-      style={{
-        alignSelf: "flex-start",
-        marginTop: "20px",   
-        marginLeft: "20px",   
-        marginBottom: "20px",
-        backgroundColor: "#0078D4",
-        padding: "20px",
-        borderRadius: "8px",
-      }}
-    >
-      <style>
-        {`
-          nav a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-          }
-          nav a:hover {
-            text-decoration: underline;
-          }
-        `}
-      </style>
-      <a href="/Home" style={{ color: "white", margin: "0 10px" }}> Home</a>
-      <a href="/Resources.html" style={{ color: "white", margin: "0 10px" }}>Resources </a>
-    </nav>
-
-    <div
-      style={{
-        flexGrow: 1,
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+      {/* Navigation Menu */}
       <div
         style={{
-          fontSize: "1.8rem",
-          fontWeight: "bold",
-          color: "#0078D4",
-          marginLeft: "calc(0% - 200px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          marginBottom: "0px",
+          padding: "0 20px",
+          width: "100%",
         }}
       >
-        Welcome to Health Bot! 🩺
-      </div>
-    </div>
-  </div>
- 
-  <div
-    style={{
-      width: "90%",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      marginBottom: "20px",
-    }}
-  >
-    <div
-      style={{
-        width: "80%",
-        textAlign: "center",
-        fontSize: "1.1rem",
-        lineHeight: "1.5",
-        color: "#0078D4", 
-        fontWeight: "500",
+        <nav
+          style={{
+            alignSelf: "flex-start",
+            marginTop: "20px",
+            marginLeft: "20px",
+            marginBottom: "20px",
+            backgroundColor: "#0078D4",
+            padding: "20px",
+            borderRadius: "8px",
+          }}
+        >
+          <style>
+            {`
+              nav a {
+                color: white;
+                margin: 0 10px;
+                text-decoration: none;
+                font-weight: bold;
+              }
+              nav a:hover {
+                text-decoration: underline;
+              }
+            `}
+          </style>
+          <a href="/Home" style={{ color: "white", margin: "0 10px" }}> Home</a>
+          <a href="/Resources.html" style={{ color: "white", margin: "0 10px" }}>Resources </a>
+        </nav>
 
-        border: "2px solid #0078D4",     
-        borderRadius: "12px",            
-        padding: "1px 15px",            
-        backgroundColor: "#fefefe", 
-      }}
-    >
-      <p style={{ marginBottom: "10px" }} >
-        Meet <strong> Health Bot</strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
-      </p>
-      <p style={{ marginTop: "0px" }} >
-        <strong>Enter details such as your age, weight, and medical history to get started.</strong>
-      </p>
-    </div>
-  </div>
+        <div
+          style={{
+            flexGrow: 1,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "1.8rem",
+              fontWeight: "bold",
+              color: "#0078D4",
+              marginLeft: "calc(0% - 200px)",
+            }}
+          >
+            Welcome to Health Bot! 🩺
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{
+          width: "90%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <div
+          style={{
+            width: "80%",
+            textAlign: "center",
+            fontSize: "1.1rem",
+            lineHeight: "1.5",
+            color: "#0078D4",
+            fontWeight: "500",
+            border: "2px solid #0078D4",
+            borderRadius: "12px",
+            padding: "1px 15px",
+            backgroundColor: "#fefefe",
+          }}
+        >
+          <p style={{ marginBottom: "10px" }}>
+            Meet <strong> Health Bot</strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
+          </p>
+          <p style={{ marginTop: "0px" }}>
+            <strong>Enter details such as your age, weight, and medical history to get started.</strong>
+          </p>
+        </div>
+      </div>
 
       <div
         style={{
