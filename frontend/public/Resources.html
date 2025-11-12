@@ -4,11 +4,34 @@
   <meta charset="UTF-8">
   <title>Diabetes Resources</title>
   <style>
+    /* Fixed Navigation bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0078D4;
+      padding: 20px;
+      border-radius: 0 0 8px 8px;
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-start;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
-      padding: 20px;
       margin: 0;
+      padding-top: 80px; /* Make room for fixed nav */
     }
     h1 {
       text-align: center;
@@ -56,6 +79,11 @@
   </style>
 </head>
 <body>
+  <!-- Fixed Navigation bar -->
+  <nav>
+    <a href="/Home.html">Home</a>
+    <a href="/Resources.html">Resources</a>
+  </nav>
   <h1>Diabetes Resources</h1>
 
   <!-- General Info -->
