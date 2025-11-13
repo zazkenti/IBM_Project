@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     setChat([
       {
-        sender: "Bot",
+        sender: "Wellis",
         text: `I am an AI chatbot designed to help reduce the risks of diabetes and offer suggestions to improve your lifestyle. I can:
 
 • Predict the chances of a user developing diabetes based on their lifestyle and health information
@@ -42,15 +42,15 @@ Would you like to share some information about yourself and get started?`
       });
 
       const data = await res.json();
-      const botResponse = data.output?.[0]?.content || "No reply from bot.";
+      const botResponse = data.output?.[0]?.content || "No reply from Wellis.";
 
       // ✅ Append bot reply only once
-      setChat((prev) => [...prev, { sender: "Bot", text: botResponse }]);
+      setChat((prev) => [...prev, { sender: "Wellis", text: botResponse }]);
     } catch (error) {
       console.error("Error sending message:", error);
       setChat((prev) => [
         ...prev,
-        { sender: "Bot", text: "⚠️ Error: Could not reach the server." },
+        { sender: "Wellis", text: "⚠️ Error: Could not reach the server." },
       ]);
     } finally {
       setIsTyping(false);
@@ -161,7 +161,7 @@ Would you like to share some information about yourself and get started?`
               marginLeft: "calc(0% - 200px)",
             }}
           >
-            Welcome to Health Bot! 🩺
+            Welcome to WellisCareAI! 🩺
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@ Would you like to share some information about yourself and get started?`
           }}
         >
           <p style={{ marginBottom: "10px" }}>
-            Meet <strong> Health Bot</strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
+            Meet <strong> Wellis </strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
           </p>
           <p style={{ marginTop: "0px" }}>
             <strong>Enter details such as your age, weight, height, gender, and medical history to get started.</strong>
@@ -251,7 +251,7 @@ Would you like to share some information about yourself and get started?`
             >
               <b>{c.sender}:</b>
               <div style={{ marginTop: "4px" }}>
-                {c.sender === "Bot" ? formatText(c.text) : c.text}
+                {c.sender === "Wellis" ? formatText(c.text) : c.text}
               </div>
             </div>
           ))}
@@ -268,7 +268,7 @@ Would you like to share some information about yourself and get started?`
                 fontStyle: "italic",
               }}
             >
-              Bot is typing...
+              Wellis is typing...
             </div>
           )}
           <div ref={chatEndRef} />
