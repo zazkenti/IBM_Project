@@ -190,7 +190,7 @@ Would you like to share some information about yourself and get started?`
           }}
         >
           <p style={{ marginBottom: "10px" }}>
-            Meet <strong> Wellis </strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
+            Meet <strong> Wellis</strong>, your AI healthcare assistant to predict diabetes risk, create diet and exercise plans, and give personalized advice to improve your lifestyle.
           </p>
           <p style={{ marginTop: "0px" }}>
             <strong>Enter details such as your age, weight, height, gender, and medical history to get started.</strong>
